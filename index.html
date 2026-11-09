@@ -202,6 +202,19 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
  .links a:last-child{border-bottom:0}
 }
 @media (max-width:820px){.hero{padding-top:44px;padding-bottom:50px}.wa{padding:11px 16px;font-size:.9rem}}
+.view{display:none;min-height:70vh}.view.active{display:block}
+.links a.cur{color:var(--accent)}
+.fstrip{overflow:hidden;padding:30px 0 10px}
+.ftrack{display:flex;gap:20px;width:max-content;animation:slide 45s linear infinite}
+.fstrip:hover .ftrack{animation-play-state:paused}
+.ftrack .zoom{width:250px;height:330px;flex:none;border-radius:20px;overflow:hidden;border:2px solid var(--accent);padding:0;transition:transform .3s}
+.ftrack .zoom:nth-child(odd){transform:rotate(-3deg)}.ftrack .zoom:nth-child(even){transform:rotate(3deg) translateY(14px)}
+.ftrack .zoom:hover{transform:rotate(0) scale(1.05)}
+.ftrack .zoom img{display:block;width:100%;height:100%;object-fit:cover}
+.ctaband{margin-top:50px;padding:44px 30px;border-radius:24px;text-align:center;background:linear-gradient(135deg,#2b1255,#141414);border:1px solid var(--accent);box-shadow:0 0 50px rgba(185,131,255,.25)}
+.ctaband h2{max-width:none;font-size:clamp(1.8rem,4.5vw,3rem)}.ctaband p{color:var(--muted);margin:14px 0 24px}
+.fnav{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 24px;font-size:.95rem}.fnav a:hover{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.ftrack{animation:none}.fstrip{overflow-x:auto}}
 </style>
 </head>
 <body>
@@ -209,19 +222,20 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
 <a class="wa" id="wa" href="https://wa.me/923092455834" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
 <div class="progress" id="progress"></div>
 <div class="ring" id="ring" aria-hidden="true"></div>
-<a class="skip" href="#approach">Skip to content</a>
+<a class="skip" href="#home" id="skip">Skip to content</a>
 <header><div class="wrap bar">
- <a class="logo" href="#top">Sadaf<b>.</b></a>
- <nav class="links" id="navlinks" aria-label="Main"><a href="#approach">Approach</a><a href="#work">Work</a><a href="#services">Services</a><a href="#skills">Skills</a><a href="#feedback">Feedback</a><a href="#faq">FAQ</a></nav>
+ <a class="logo" href="#home">Sadaf<b>.</b></a>
+ <nav class="links" id="navlinks" aria-label="Main"><a href="#home">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#feedback">Feedback</a><a href="#contact">Contact</a></nav>
  <span class="clock" id="clock" aria-hidden="true"></span>
  <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
  <a class="pill" href="#contact">Hire me</a>
 </div></header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 <div class="aurora" aria-hidden="true"><i style="left:5%;top:-10%;width:420px;height:420px;background:#b983ff"></i><i style="right:5%;top:10%;width:380px;height:380px;background:#e879f9;animation-delay:-5s"></i><i style="left:40%;top:40%;width:340px;height:340px;background:#3b82f6;animation-delay:-9s"></i></div>
 <div class="glow" id="glow" aria-hidden="true"></div>
 <b class="star" aria-hidden="true" style="right:8%;top:130px">✦</b><b class="star" aria-hidden="true" style="left:3%;top:540px;font-size:2rem;animation-delay:-2s">✦</b>
+<div class="view" id="v-home">
 <div class="wrap hero">
  <div>
   <span class="tag">Digital creator · Sindh, Pakistan</span>
@@ -241,6 +255,20 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
 
 <div class="m2" aria-hidden="true"><div>Write ✦ Design ✦ Edit ✦ Create ✦ Write ✦ Design ✦ Edit ✦ Create ✦ Write ✦ Design ✦ Edit ✦ Create ✦ Write ✦ Design ✦ Edit ✦ Create ✦ </div></div>
 
+<section id="numbers"><div class="wrap">
+ <div class="eyebrow">Trusted work</div>
+ <h2>Numbers that matter.</h2>
+ <!-- EDIT THESE NUMBERS to your real figures -->
+ <div class="stats" style="margin:30px 0 10px">
+  <div class="stat"><b>25+</b><span>Happy clients</span></div>
+  <div class="stat"><b>60+</b><span>Projects completed</span></div>
+  <div class="stat"><b>100%</b><span>Custom work</span></div>
+  <div class="stat"><b>24h</b><span>Reply time</span></div>
+ </div>
+</div></section>
+<section id="featured" style="padding:30px 0 70px"><div class="wrap"><div class="eyebrow">Featured work</div><h2>Fresh from my desk.</h2></div>
+ <div class="fstrip" aria-label="Featured design work"><div class="ftrack" id="ftrack"></div></div>
+</section>
 <section id="approach"><div class="wrap">
  <div class="eyebrow">About me · How I work</div>
  <h2>I listen first. Then I create.</h2>
@@ -254,6 +282,19 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
  </div>
 </div></section>
 
+<section id="why"><div class="wrap">
+ <div class="eyebrow">Why work with me</div>
+ <h2>Simple. Clear. On time.</h2>
+ <div class="steps" style="margin-top:36px">
+  <div class="step"><small>✦</small><h3>On-time delivery</h3><p>You get a clear deadline and final files when promised.</p></div>
+  <div class="step"><small>✦</small><h3>Revisions included</h3><p>I keep refining the work until you are happy with it.</p></div>
+  <div class="step"><small>✦</small><h3>One person</h3><p>Writing, design and video in one place, with no confusion.</p></div>
+  <div class="step"><small>✦</small><h3>Custom only</h3><p>Every project is made for your brand, never copied.</p></div>
+ </div>
+ <div class="ctaband"><h2>Ready to start your project?</h2><p>Send a message on WhatsApp and get a reply soon.</p><a class="pill" href="#contact">Hire me</a> <a class="pill out" href="https://wa.me/923092455834" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div>
+</div></section>
+</div>
+<div class="view" id="v-work">
 <section id="work"><div class="wrap">
  <div class="eyebrow">Portfolio</div>
  <h2>Recent design projects.</h2>
@@ -274,6 +315,8 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
  </div>
 </div></section>
 
+</div>
+<div class="view" id="v-services">
 <section id="services"><div class="wrap">
  <div class="eyebrow">Services</div>
  <h2>Three skills. One contact.</h2>
@@ -297,6 +340,8 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
  <div class="skill"><div class="t"><span>Video editing</span><span>80%</span></div><div class="track"><i data-w="80"></i></div></div>
 </div></section>
 
+</div>
+<div class="view" id="v-feedback">
 <section id="feedback"><div class="wrap">
  <div class="eyebrow">Feedback</div>
  <h2>Kind words from clients.</h2>
@@ -328,6 +373,8 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
  </div>
 </div></section>
 
+</div>
+<div class="view" id="v-contact">
 <section id="contact"><div class="wrap cta">
  <div>
   <div class="eyebrow">Contact</div>
@@ -346,9 +393,11 @@ h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
   <div class="msg" id="msg" role="status"></div>
  </form>
 </div></section>
+</div>
 </main>
 
 <footer><div class="wrap">
+ <nav class="fnav" aria-label="Footer"><a href="#home">Home</a><a href="#work">Work</a><a href="#services">Services</a><a href="#feedback">Feedback</a><a href="#contact">Contact</a><a href="https://wa.me/923092455834" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
  <div class="big" aria-hidden="true">Sadaf Ali Chandio</div>
  <p>© <span id="yr"></span> Sadaf Ali Chandio. Content writer, graphic designer and video editor.</p>
 </div></footer>
@@ -432,6 +481,16 @@ mb.addEventListener("click", function(){ var o = nl.classList.toggle("open"); mb
 nl.addEventListener("click", function(e){ if(e.target.closest("a")){ nl.classList.remove("open"); mb.setAttribute("aria-expanded","false"); mb.textContent = "Menu"; } });
 document.addEventListener("keydown", function(e){ if(e.key === "Escape" && nl.classList.contains("open")){ nl.classList.remove("open"); mb.setAttribute("aria-expanded","false"); mb.textContent = "Menu"; mb.focus(); } if(e.key === "Tab" && !lb.hidden){ e.preventDefault(); document.getElementById("lbx").focus(); } });
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+var ftk=document.getElementById("ftrack");
+if(ftk){ var zs=document.querySelectorAll("#works .work .zoom"); for(var k=0;k<2;k++){ zs.forEach(function(z){ var c=z.cloneNode(true); if(k){ c.setAttribute("aria-hidden","true"); c.tabIndex=-1; } ftk.appendChild(c); }); } }
+var VN=["home","work","services","feedback","contact"],views=document.querySelectorAll(".view"),TT={home:"Sadaf Ali Chandio | Content Writer, Graphic Designer, Video Editor",work:"Work | Sadaf Ali Chandio",services:"Services | Sadaf Ali Chandio",feedback:"Feedback | Sadaf Ali Chandio",contact:"Contact | Sadaf Ali Chandio"};
+function route(){ var h=(location.hash||"").slice(1); if(VN.indexOf(h)<0){ h="home"; }
+ views.forEach(function(v){ v.classList.toggle("active", v.id==="v-"+h); });
+ document.querySelectorAll("#navlinks a").forEach(function(a){ a.classList.toggle("cur", a.getAttribute("href")==="#"+h); });
+ document.title=TT[h]; window.scrollTo(0,0); }
+window.addEventListener("hashchange",route); route();
+document.getElementById("skip").addEventListener("click",function(e){ e.preventDefault(); document.getElementById("top").focus(); });
 </script>
 </body>
 </html>
